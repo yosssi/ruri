@@ -1,4 +1,1 @@
-ruri
-====
-
-HTML template engine for Go
+# ruri - HTML template engine for Go
