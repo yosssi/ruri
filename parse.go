@@ -20,11 +20,16 @@ func parse(s string) (*result, error) {
 	}
 
 	for i < l {
-		line := lines[i]
-
+		// Fetch the line.
+		ln := newLine(lines[i])
 		i++
 
-		fmt.Println(line)
+		// Ignore the empty line.
+		if ln.empty() {
+			continue
+		}
+
+		fmt.Println(ln)
 	}
 
 	return newResult(elements), nil
