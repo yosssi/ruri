@@ -7,7 +7,7 @@ func ParseFile(path string, opts *Options) (string, error) {
 		return "", err
 	}
 
-	r, err := parse(b)
+	r, err := parse(string(b))
 	if err != nil {
 		return "", err
 	}

@@ -1,6 +1,36 @@
 package ruri
 
-// parse parses the byte codes and returns the result.
-func parse(b []byte) (*result, error) {
-	return nil, nil
+import (
+	"fmt"
+	"strings"
+)
+
+// parse parses the string and returns the result.
+func parse(s string) (*result, error) {
+	var elements []element
+
+	// Split the string to lines.
+	lines := strings.Split(formatLF(s), "\n")
+
+	i, l := 0, len(lines)
+
+	// Ignore the last empty line.
+	if lines[l-1] == "" {
+		l--
+	}
+
+	for i < l {
+		line := lines[i]
+
+		i++
+
+		fmt.Println(line)
+	}
+
+	return newResult(elements), nil
+}
+
+// formatLF replaces the line feed codes with LF and returns the result.
+func formatLF(s string) string {
+	return strings.Replace(strings.Replace(s, "\r\n", "\n", -1), "\r", "\n", -1)
 }
