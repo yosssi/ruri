@@ -21,7 +21,7 @@ func parse(s string) (*result, error) {
 
 	for i < l {
 		// Fetch the line.
-		ln := newLine(lines[i])
+		ln := newLine(i, lines[i])
 		i++
 
 		// Ignore the empty line.
@@ -29,7 +29,9 @@ func parse(s string) (*result, error) {
 			continue
 		}
 
-		fmt.Println(ln)
+		if ln.topIndent() {
+			fmt.Println(ln.s)
+		}
 	}
 
 	return newResult(elements), nil
